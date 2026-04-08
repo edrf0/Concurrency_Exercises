@@ -22,3 +22,12 @@ Each exercise is contained in a standalone `.cpp` file to demonstrate a specific
 
 ## 🔨 How to Build
 Since each exercise is a standalone program, they can be compiled individually.
+
+🔍 Debugging Case Study: The Lambda Capture Race
+While developing the performance benchmark (exercise 14), I encountered a significant logic error where the multithreaded sum was much higher than the single-threaded sum.
+The Bug:
+I was originally capturing the loop index i by reference ([&]). Because the main thread finished the creation loop faster than the threads could start, all threads were referencing the final value of i (e.g., 12) rather than their unique IDs (0, 1, 2...). This caused every thread to calculate the same high-range "slice" of the math.
+The Fix:
+I switched to capturing the index by value ([&, i]). This ensured each thread received a private, immutable copy of its specific workload range at the moment of creation.
+Key Insight:
+This highlighted the critical difference between reference lifetimes and thread execution timing. In concurrent programming, capturing local loop variables by reference is a "race condition" on the variable itself.
