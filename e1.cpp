@@ -4,7 +4,7 @@
 // 1. Create a thread that prints “Hello from thread”.
 int main() {
      std::thread t([]() {
-          std::cout << "Hello World!" << std::endl;
+          std::cout << "Hello World!\n";
      });
      t.join();
      return 0;

@@ -5,10 +5,9 @@
 // 2. Launch multiple threads that print their thread IDs.
 int main() {
     std::vector<std::thread> threads;
-    for (int i = 0; i < std::thread::hardware_concurrency(); ++i) {
+    for (size_t i = 0; i < std::thread::hardware_concurrency(); ++i) {
         threads.emplace_back([]() {
-             std::this_thread::sleep_for(std::chrono::milliseconds(100));
-             std::cout << std::this_thread::get_id() << std::endl;
+             std::cout << std::this_thread::get_id() << "\n";
         });
     }
     for (auto& t : threads) {

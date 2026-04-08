@@ -3,12 +3,12 @@
 
 // 12. Print even and odd numbers using two threads.
 void even() {
-    for (int i = 1; i < 10; i+=2) {
+    for (size_t i = 1; i < 10; i+=2) {
         std::cout << i << std::endl;
     }
 }
 void odd() {
-    for (int i = 0; i < 10; i+=2) {
+    for (size_t i = 0; i < 10; i+=2) {
         std::cout << i << std::endl;
     }
 }

@@ -5,7 +5,7 @@
 
 int main() {
     std::thread t1([]() {
-        std::cout << "Hello world!" << std::endl;
+        std::cout << "Hello world!" << "\n";
     });
     t1.join();
     return 0;
