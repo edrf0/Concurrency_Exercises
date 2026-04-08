@@ -10,7 +10,7 @@ One of the core challenges addressed is safely incrementing shared resources acr
 ### Evolution of the Solution:
 1.  **The Naive Approach (Unsafe):** Identified critical **data races** when multiple threads accessed a standard integer.
 2.  **The Mutex Approach:** Implemented `std::mutex` with `std::lock_guard` to ensure atomicity and ordered console output.
-3.  **The Atomic Approach (Optimized):** Leveraged `std::atomic<size_t>` for a lock-free implementation, significantly reducing overhead while maintaining data integrity (There was a significant performance improvement also).
+3.  **The Atomic Approach (Optimized):** Leveraged `std::atomic<size_t>` for a lock-free implementation, significantly reducing overhead while maintaining data integrity. A significant performance improvement was obtained as a result of avoiding a standard mutex object.
 
 ### Key Technical Takeaways:
 *   **Memory Safety:** Used `size_t` for loop counters and shared variables to ensure architecture-agnostic stability and prevent overflow/infinite loops (avoiding common pitfalls with `uint8_t`).
@@ -21,4 +21,4 @@ One of the core challenges addressed is safely incrementing shared resources acr
 Each exercise is contained in a standalone `.cpp` file to demonstrate a specific concurrency concept. In each file there is a comment describing the exercise requirements.
 
 ## 🔨 How to Build
-Since each exercise is a standalone program, you can compile them individually.
+Since each exercise is a standalone program, they can be compiled individually.
