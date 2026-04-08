@@ -36,5 +36,5 @@ The following results were captured on a 12-core machine, summing 120,000,000 in
 * **Multi-threaded:** 16'015'900 ns. ~4.11x Faster
 
 ## Benchmark Analysis:
-* **Near-Linear Scaling:** Despite the overhead of spawning 12 separate threads, the local-sum pattern allowed the CPU to utilize multiple cores effectively, cutting the execution time by more than two-thirds.
+* **Near-Linear Scaling:** Despite the overhead of spawning 12 separate threads, the local-sum pattern allowed the CPU to utilize multiple cores effectively, cutting the execution time by more than three-fourths.
 * **Cache Efficiency:** By using local size_t variables for the bulk of the work and only updating the std::atomic total once per thread, the implementation avoided "Cache Contention" (False Sharing), which otherwise would have throttled performance.
