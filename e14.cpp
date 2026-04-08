@@ -17,7 +17,7 @@ int main() {
     }
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-    std::cout << duration.count() << " ns : sum = " << single_sum << "\n";
+    std::cout <<"Single-threaded: " << duration.count() << " ns. Sum = " << single_sum << "\n";
 
     // Multithreaded sum
     std::vector<std::thread> threads;
@@ -42,6 +42,6 @@ int main() {
     }
     end = std::chrono::high_resolution_clock::now();
     duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-    std::cout << duration.count() << " ns: sum = " << multithreaded_sum << "\n";
+    std::cout << "Multi-threaded: " << duration.count() << " ns. Sum = " << multithreaded_sum << "\n";
     return 0;
 }
