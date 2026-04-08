@@ -29,12 +29,11 @@ While developing the performance benchmark (Exercise 14), I encountered a signif
 *   **The Fix:** I switched to capturing the index by value ([&, i]). This ensured each thread received a private, immutable copy of its specific workload range at the moment of creation.
 *   **Key Insight:** This highlighted the critical difference between reference lifetimes and thread execution timing. In concurrent programming, capturing local loop variables by reference creates a "race condition" on the variable itself.
 
-📊 Performance Benchmarks (Exercise 14)
+### 📊 Performance Benchmarks (Exercise 14)
 The following results were captured on a 12-core machine, summing 120,000,000 integers (10M per thread). These results demonstrate the efficiency of local-variable accumulation versus the overhead of thread management.
 
-Implementation	Execution Time	Correctness	Performance Gain
-Single-threaded	~68,677,100 ns	✅ Match	Baseline
-Multi-threaded	~20,233,000 ns	✅ Match	~3.4x Faster
+Single-threaded: 65'831'000 ns.	Baseline
+Multi-threaded: 16'015'900 ns. ~4.11x Faster
 
 ## Benchmark Analysis:
 **Near-Linear Scaling:** Despite the overhead of spawning 12 separate threads, the local-sum pattern allowed the CPU to utilize multiple cores effectively, cutting the execution time by more than two-thirds.
