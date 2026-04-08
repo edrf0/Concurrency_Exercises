@@ -16,3 +16,9 @@ One of the core challenges addressed is safely incrementing shared resources acr
 *   **Memory Safety:** Used `size_t` for loop counters and shared variables to ensure architecture-agnostic stability and prevent overflow/infinite loops (avoiding common pitfalls with `uint8_t`).
 *   **Synchronized I/O:** Utilized `std::osyncstream` (C++20) to prevent interleaved/garbled console output without the heavy performance cost of a global mutex.
 *   **Hardware Concurrency:** Dynamically scaled thread pools using `std::thread::hardware_concurrency()` to match the host machine's physical cores.
+
+## 📂 Project Structure
+Each exercise is contained in a standalone `.cpp` file to demonstrate a specific concurrency concept. In each file there is a comment describing the exercise requirements.
+
+## 🔨 How to Build
+Since each exercise is a standalone program, you can compile them individually.
