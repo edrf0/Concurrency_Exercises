@@ -26,10 +26,10 @@ int main() {
         This error is a known false-positive that occurs when using Clangd
         (typically in CLion or VS Code) to edit C++ code, specifically when the
         project is using the Microsoft C++ Standard Library (MSVC STL) in C++20 mode.
-        It is not a fault in your code. The issue arises because Clangd cannot correctly
-        interpret MSVC-specific "magic" intrinsics (specifically _Is_pointer_address_convertible
-        and __is_pointer_interconvertible_with_class) used in C++20 traits, causing it to incorrectly
-        report that a constexpr variable is not initialized by a constant expression.
+        The issue arises because Clangd cannot correctly interpret MSVC-specific "magic" intrinsics
+        (specifically _Is_pointer_address_convertible and __is_pointer_interconvertible_with_class)
+        used in C++20 traits, causing it to incorrectly report that a constexpr variable is not
+        initialized by a constant expression.
         */
         q.push(20);
     }
