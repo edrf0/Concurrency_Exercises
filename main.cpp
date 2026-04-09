@@ -1,6 +1,7 @@
-#include <chrono>
 #include <iostream>
 #include <thread>
+
+// 18. Use std::async and std::future to get result from a thread.
 
 
 
@@ -13,9 +14,6 @@ int main() {
 
 /*
 Intermediate Level
-1. Use std::condition_variable for thread signaling.
-2. Implement producer-consumer using a queue and condition variable.
-3. Use std::async and std::future to get result from a thread.
 4. Run multiple asynchronous tasks and wait for results.
 5. Simulate a dining philosophers problem.
 6. Readers-Writers problem using std::shared_mutex.
